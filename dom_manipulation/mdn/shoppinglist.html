@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Shopping List Tool</title>
+</head>
+<body>
+    <h1>My Shopping List</h1>
+    
+    <div>
+        <label for="item">Enter a new item:</label>
+        <input type="text" name="item" id="item">
+        <button>Add item</button>
+    </div> 
+    
+    <ul>
+        <li>Eggs</li>
+    </ul>
+
+    <script>
+        const shoppingList = document.querySelector("ul");
+        const itemInput = document.querySelector("input");
+        const addItemButton = document.querySelector("button");
+
+        addItemButton.addEventListener("click", addItem);
+        itemInput.addEventListener("keydown", function(e) {
+            if (e.key === 'Enter') {
+                addItem();
+            }
+        })
+
+        function addItem() {
+            const itemName = itemInput.value;
+            itemInput.value = "";
+            
+            const item = document.createElement("li");
+            const spanItem = document.createElement("span");
+            const removeBtn = document.createElement("button");
+
+            item.appendChild(spanItem);
+            item.appendChild(removeBtn);
+
+            spanItem.textContent = itemName;
+            removeBtn.textContent = "delete";
+            removeBtn.addEventListener("click", removeItem);
+
+            shoppingList.appendChild(item);
+            itemInput.focus();
+        }
+
+        function removeItem(e) {
+            e.target.parentNode.remove();
+            itemInput.focus();
+        }
+    </script>
+</body>
+</html>
