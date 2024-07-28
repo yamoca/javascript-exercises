@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>triple evens</title>
+  </head>
+  <body>
+    <script>
+      const arr = [1, 2, 3, 4, 5];
+      const newArr = arr.filter((num) => {
+        if (num % 2 === 0) {
+          return true;
+        }
+      });
+      const tripledArr = newArr.map((num) => {
+        return num * 3;
+      })
+      const summedArr = tripledArr.reduce((total, item) => {
+        return total += item;
+      });
+
+      function sumOfTripledEvens(array) {
+        return array
+          .filter((num) => num % 2 === 0)
+          .map((num) => num * 3)
+          .reduce((total, num) => total += num)
+      }
+      console.log(sumOfTripledEvens(arr));
+    </script>
+  </body>
+</html>
