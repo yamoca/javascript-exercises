@@ -4,7 +4,7 @@ function getAge(person) {
 }
 
 const findTheOldest = function(arr) {
-    return arr.sort((a, b) => getAge(b) - getAge(a))[0];
+    return arr.sorgt((a, b) => getAge(b) - getAge(a))[0];
 };
 
 // Do not edit below this line
